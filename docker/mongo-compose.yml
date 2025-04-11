@@ -1,0 +1,14 @@
+---
+services:
+    mongo:
+      container_name: mongodb-gt
+      image: mongo:latest
+      ports:
+        - "8086:27017"
+      volumes:
+        - ./data/db:/data/db
+        - ./data/config:/data/configdb
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: mongo
+        MONGO_INITDB_ROOT_PASSWORD: mongo
+      restart: unless-stopped
